@@ -10,14 +10,14 @@ export class StarsComponent implements OnInit {
   @Input()
   num: number = 0
   starss: boolean[]
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    console.log(this.num)
+    // console.log(this.num)
     this.starss = []
     for (let i = 1; i <= 5; i++) {
       this.starss.push(i > this.num)
     }
-    console.log(this.starss)
+    // console.log(this.starss)
   }
 }

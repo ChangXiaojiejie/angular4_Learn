@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock-manage',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./stock-manage.component.css']
 })
 export class StockManageComponent implements OnInit {
-  private stocks: Array<Stock>
-  constructor() {}
+  private stocks: Array<Stock>;
+  constructor(public router: Router) { }
   // 組件初始化會调用這個方法
   ngOnInit() {
     this.stocks = [
@@ -29,6 +30,18 @@ export class StockManageComponent implements OnInit {
       ])
     ]
   }
+
+  // 创建的表单的方法
+  create() {
+    this.router.navigateByUrl('/stock/0');
+  }
+
+  // 修改的表单的方法
+  update(stock: Stock) {
+    this.router.navigateByUrl('/stock/' + stock.id)
+
+  }
+
 }
 
 /**
@@ -48,5 +61,5 @@ export class Stock {
     public rating: number,
     public desc: string,
     public categories: Array<string>
-  ) {}
+  ) { }
 }

@@ -2,8 +2,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            最牛的股票的管理
-            <small>进行股票的最基本的增删改查</small>
+            <!-- 最牛的股票的管理 -->
+            {{pageTitle}}
+            <small>{{pageDesc}}</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -13,7 +14,9 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-        <app-stock-manage></app-stock-manage>
+        <!-- stockManage的路由的出口 -->
+        <router-outlet></router-outlet>
+        <!-- <app-stock-manage></app-stock-manage> -->
     </section>
     <!-- /.content -->
 </div>

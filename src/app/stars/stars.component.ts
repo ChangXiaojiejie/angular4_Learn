@@ -6,18 +6,17 @@ import { Component, OnInit, Input } from '@angular/core'
   styleUrls: ['./stars.component.css']
 })
 export class StarsComponent implements OnInit {
-  stars: boolean[]
   @Input()
-  num: number = 0
-  starss: boolean[]
+  rating: number = 0
+  stars: boolean[]
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.num)
-    this.starss = []
+    // console.log(this.rating)
+    this.stars = []
     for (let i = 1; i <= 5; i++) {
-      this.starss.push(i > this.num)
+      this.stars.push(i > this.rating);
     }
-    // console.log(this.starss)
+    // console.log(this.stars)
   }
 }

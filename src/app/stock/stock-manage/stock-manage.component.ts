@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StockService, Stock } from '../stock.service';
 
 @Component({
   selector: 'app-stock-manage',
@@ -8,32 +9,16 @@ import { Router } from '@angular/router';
 })
 export class StockManageComponent implements OnInit {
   private stocks: Array<Stock>;
-  constructor(public router: Router) { }
+  constructor(public router: Router, private stockService: StockService) { }
   // 組件初始化會调用這個方法
   ngOnInit() {
-    this.stocks = [
-      new Stock(1, '第一只股票', 1.99, 3.5, '这是一只很好的股票1', [
-        '互联网',
-        'IT'
-      ]),
-      new Stock(2, '第二只股票', 2.99, 1.5, '这是一只很好的股票2', [
-        '互联网',
-        'IT'
-      ]),
-      new Stock(3, '第三只股票', 3.99, 4.5, '这是一只很好的股票3', [
-        '互联网',
-        'IT'
-      ]),
-      new Stock(4, '第四只股票', 4.99, 2.5, '这是一只很好的股票4', [
-        '互联网',
-        'IT'
-      ])
-    ]
+    this.stocks = this.stockService.getStocks()
   }
 
   // 创建的表单的方法
   create() {
     this.router.navigateByUrl('/stock/0');
+    // console.log(1111111)
   }
 
   // 修改的表单的方法
@@ -44,22 +29,4 @@ export class StockManageComponent implements OnInit {
 
 }
 
-/**
- * id： 股票的id
- * name： 股票的名稱
- * price： 股票的價格
- * rating： 股票的股票的評級
- * desc： 股票的描述
- * categories： 股票的類別
- */
 
-export class Stock {
-  constructor(
-    public id: number,
-    public name: string,
-    public price: number,
-    public rating: number,
-    public desc: string,
-    public categories: Array<string>
-  ) { }
-}

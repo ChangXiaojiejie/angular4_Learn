@@ -22,7 +22,6 @@ export class StockFormComponent implements OnInit {
   }
   save() {
     this.router.navigateByUrl('/stock')
-
   }
 
 }
